@@ -9,10 +9,13 @@ part of 'linkedin_access_token.dart';
 LinkedInAccessToken _$LinkedInAccessTokenFromJson(Map<String, dynamic> json) =>
     LinkedInAccessToken(
       accessToken: json['access_token'] as String?,
-      expiresIn: json['expires_in'] as int?,
+      expiresIn: (json['expires_in'] as num?)?.toInt(),
       scope: json['scope'] as String?,
       tokenType: json['token_type'] as String?,
       idToken: json['id_token'] as String?,
+      refreshToken: json['refresh_token'] as String?,
+      refreshTokenExpiresIn:
+          (json['refresh_token_expires_in'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$LinkedInAccessTokenToJson(
@@ -23,4 +26,6 @@ Map<String, dynamic> _$LinkedInAccessTokenToJson(
       'scope': instance.scope,
       'token_type': instance.tokenType,
       'id_token': instance.idToken,
+      'refresh_token': instance.refreshToken,
+      'refresh_token_expires_in': instance.refreshTokenExpiresIn,
     };

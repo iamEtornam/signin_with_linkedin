@@ -1,5 +1,3 @@
-library signin_with_linkedin;
-
 import 'package:flutter/material.dart';
 
 import 'signin_with_linkedin.dart';

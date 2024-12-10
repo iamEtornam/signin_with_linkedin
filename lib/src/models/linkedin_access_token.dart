@@ -14,6 +14,10 @@ class LinkedInAccessToken extends Equatable {
   final String? tokenType;
   @JsonKey(name: 'id_token')
   final String? idToken;
+  @JsonKey(name: 'refresh_token')
+  final String? refreshToken;
+  @JsonKey(name: 'refresh_token_expires_in')
+  final int? refreshTokenExpiresIn;
 
   const LinkedInAccessToken({
     this.accessToken,
@@ -21,6 +25,8 @@ class LinkedInAccessToken extends Equatable {
     this.scope,
     this.tokenType,
     this.idToken,
+    this.refreshToken,
+    this.refreshTokenExpiresIn,
   });
 
   factory LinkedInAccessToken.fromJson(Map<String, dynamic> json) {
@@ -40,6 +46,8 @@ class LinkedInAccessToken extends Equatable {
       scope,
       tokenType,
       idToken,
+      refreshToken,
+      refreshTokenExpiresIn,
     ];
   }
 }
